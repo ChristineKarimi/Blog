@@ -1,3 +1,12 @@
+from flask import render_template, redirect, request, url_for, abort
+from flask_login import login_required, current_user
+from . import main
+from ..admin import admin
+from .forms import ReviewForm, BlogForm, EditBlog, DeleteBlog, DeleteComment
+from ..models import Blog, Review, User
+from .. import db
+
+#==============================================================================================================================================================================================================================
 
 @main.route('/blog/review/new/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -21,3 +30,5 @@ def new_review(id):
         return redirect(url_for('.single_blog', id=blog.id))
 
     return render_template('new_review.html', review_form=form, blog=blog)
+
+#===============================================================================================================================================================================================================================================

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% block styles%}
+        {{ super() }}
+            <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    {% endblock %}
+
+
+    {% block content %}
+
+        <div class="container">
+
+            {% if current_user.is_authenticated%}
+                <h1>Hello {{current_user.username}} </h1>
+            {% else %}
+                <h1>Hello stranger</h1>
+            {%endif%}
+
+        </div>
+        <hr>
+        <div class="container">
+
+                {% if current_user.id == 1 %}
+
+                    <a class="btn btn-default" href="admin/blog/new"> Create Blog </a>
+
+                {% else %}
+
+                {% endif %}
+        </div>
+        <div class="container">
+        <div class="row">
+
+                <ul style="...">
+                    {{ macro.displayBlogList (blogs) }}
+                </ul>
+
+            </div>
+        </div>
+
+    {% endblock %}
+
+</body>
+
+</html>
+
+
+

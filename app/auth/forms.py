@@ -24,12 +24,9 @@ class RegistrationForm(FlaskForm):
 
 
 #login form for already registered users
-    class LoginForm(FlaskForm):
+class LoginForm(FlaskForm):
 
     email = StringField('Email Address', validators=[Required()])
-
     password = PasswordField('Password', validators=[Required()])
-
     remember = BooleanField('Remember Me')
-
     submit = SubmitField('Sign In')   
