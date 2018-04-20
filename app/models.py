@@ -4,14 +4,6 @@ from flask_login import UserMixin
 from . import login_manager
 from . import db
 
-
-@login_manager.user_loader
-def load_user(user_id):
-
-    return User.query.get(int(user_id))
-
-#===================================================================================================================================================================================================================================================================================================
-
 class User(UserMixin, db.Model):
 
     __tablename__ = 'users'
@@ -19,16 +11,14 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), index = True)
     email = db.Column(db.String(250), unique=True, index=True)
-
     password_hash = db.Column(db.String(400))
-
     blog_id = db.relationship('Blog', backref='user', lazy='dynamic')
     review_id = db.relationship('Review', backref='user', lazy='dynamic')
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
     @property
     def password(self):
-        raise AttributeError('Access to the password attribute Denied!')
+        raise AttributeError('Access Denied!')
 
     @password.setter
     def password(self, password):
@@ -36,6 +26,10 @@ class User(UserMixin, db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
 
     def __repr__(self):
         return f'User {self.username}'
@@ -47,9 +41,7 @@ class Role(db.Model):
     __tablename__ = 'roles'
 
     id = db.Column(db.Integer, primary_key = True)
-
     role = db.Column(db.String)
-
     user = db.relationship('User', backref='role', lazy='dynamic')
 
 
@@ -65,17 +57,11 @@ class Blog(db.Model):
     __tablename__ = 'blogs'
 
     id = db.Column(db.Integer, primary_key = True)
-
     title = db.Column(db.String)
-
     description = db.Column(db.String)
-
     blog = db.Column(db.String)
-
     posted = db.Column(db.DateTime, default=datetime.now(tz=None))
-
     review_id = db.relationship('Review', backref='blog', lazy='dynamic')
-
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def save_blog(self):
@@ -111,9 +97,7 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     review = db.Column(db.String)
-
     posted = db.Column(db.DateTime, default=datetime.now(tz=None))
-
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
 
