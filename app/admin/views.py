@@ -51,3 +51,10 @@ def delete_review(id):
     review = Review.delete_blog(id)
 
     return redirect(url_for('.single_blog'))
+
+@admin.route('/edit/blog/<int:id>', methods=['GET', 'POST'])
+def edit_blog(id):
+
+    edit = Review.delete_blog(id)
+
+    return redirect(url_for('.single_blog'))
