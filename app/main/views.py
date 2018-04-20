@@ -3,33 +3,42 @@ from flask_login import login_required, current_user
 from . import main
 #from ..admin import admin
 #from .forms import ReviewForm, BlogForm, EditBlog, DeleteBlog, DeleteComment
-#from ..models import Blog, Review, User
+from ..models import Blog, Review, User
 from .. import db
 
 #==============================================================================================================================================================================================================================
+@main.route('/')
+@login_required
+def index():
+
+                blogs = Blog.get_blog(id)
+
+                return render_template('index.html', blogs=blogs)
+
+#====================================================================================================================================================================
 
 @main.route('/blog/review/new/<int:id>', methods=['GET', 'POST'])
 @login_required
 def new_review(id):
 
-    blog = Blog.query.filter_by(id=id).first()
+                blog = Blog.query.filter_by(id=id).first()
 
-    if blog is None:
-        abort(404)
+                if blog is None:
+                    abort(404)
 
-    form = ReviewForm()
+                form = ReviewForm()
 
-    if form.validate_on_submit():
+                if form.validate_on_submit():
 
-        review = form.review.data
+                    review = form.review.data
 
-        new_review = Review(review=review, user_id=current_user.id, blog_id=blog.id)
+                    new_review = Review(review=review, user_id=current_user.id, blog_id=blog.id)
 
-        new_review.save_review()
+                    new_review.save_review()
 
-        return redirect(url_for('.single_blog', id=blog.id))
+                    return redirect(url_for('.single_blog', id=blog.id))
 
-    return render_template('new_review.html', review_form=form, blog=blog)
+                return render_template('new_review.html', review_form=form, blog=blog)
 
 #===============================================================================================================================================================================================================================================
 
