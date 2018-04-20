@@ -38,3 +38,21 @@ def check_user():
     return render_template('admin/dashboard.html')
 
 
+@admin.route('/blog/new', methods=['GET', 'POST'])
+def new_blog():
+
+    form = BlogForm()
+
+    if form.validate_on_submit():
+
+        title = form.title.data
+        description = form.description.data
+        blog = form.blog.data
+
+        new_blog = Blog(blog=blog, title=title, description=description)
+
+        new_blog.save_blog()
+
+        return redirect(url_for('main.index'))
+
+    return render_template('new_blog.html', blog_form=form)
