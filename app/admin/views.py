@@ -1,22 +1,3 @@
-from flask import render_template, redirect, request, url_for, abort
-from flask_login import login_required, current_user
-
-from ..models import User
-from .forms import BlogForm, ReviewForm
-from . import admin
-from ..models import Blog, Review
-
-from .. import db
-
-
-def check_user():
-
-    if current_user.id != 1:
-
-        abort (403)
-
-    return render_template('admin/dashboard.html')
-
 
 from flask import render_template, redirect, request, url_for, abort
 from flask_login import login_required, current_user
@@ -56,3 +37,10 @@ def new_blog():
         return redirect(url_for('main.index'))
 
     return render_template('new_blog.html', blog_form=form)
+
+    @admin.route('/delete/blog/<int:id>', methods=['GET', 'POST'])
+def delete_blog(id):
+
+    blog = Blog.delete_blog(id)
+
+    return redirect(url_for('main.index'))
