@@ -38,9 +38,16 @@ def new_blog():
 
     return render_template('new_blog.html', blog_form=form)
 
-    @admin.route('/delete/blog/<int:id>', methods=['GET', 'POST'])
+@admin.route('/delete/blog/<int:id>', methods=['GET', 'POST'])
 def delete_blog(id):
 
     blog = Blog.delete_blog(id)
 
     return redirect(url_for('main.index'))
+
+@admin.route('/delete/review/<int:id>', methods=['GET', 'POST'])
+def delete_review(id):
+
+    review = Review.delete_blog(id)
+
+    return redirect(url_for('.single_blog'))
