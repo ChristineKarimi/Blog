@@ -37,4 +37,4 @@
     
  **License**
     
-     MIT (c) 2017 `kim`
+     MIT (c) 2018 _`christinekarimi`_
