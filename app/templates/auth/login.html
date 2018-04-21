@@ -1,3 +1,4 @@
+
 {% extends 'auth/auth-base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 
@@ -12,18 +13,20 @@
     {% block styles%}
         {{ super() }}
           <link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
+          <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
     {% endblock %}
 
 
 {% block content %}
+    
 
-    <div class="container-fluid" style="background-image: url({{ url_for('static', filename='.jpg') }}); background-size: cover; background-repeat: no-repeat; font-family: 'Playfair Display', serif;">
-
-        <div class="row" style="margin-top: 200px;">
+    <div class="container-fluid" style="background-image: url({{ url_for('static', filename='7.jpg') }}); background-size: cover; background-repeat: repeat-x; font-family: 'Playfair Display', serif;">
+        
+        <div class="row" style="margin-top: 180px;">
 
             <div class="col-sm-2 col-md-2 col-lg-2"></div>
 
-            <div class="col-sm-5 col-md-5 col-lg-5" style="text-align: center; margin-top: 30px;">
+            <div class="col-sm-5 col-md-5 col-lg-5" style="text-align: center;">
 
                 <h1> THE EPITOME </h1>
 
@@ -32,7 +35,9 @@
                 <br>
 
                 <p style="font-size: 16px;">
-                  A place where great minds meet. Join us!
+                  A place where great minds meet. 
+                  <br>
+                  Join us!
                 </p>
 
                
