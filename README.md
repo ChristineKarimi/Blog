@@ -1,6 +1,6 @@
  **EPITOME**
 
-**Built By** _`christinekarimi`_
+**By** _`christinekarimi`_
 
 **Description**
     
