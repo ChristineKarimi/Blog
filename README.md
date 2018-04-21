@@ -1,39 +1,39 @@
- **BLOGY**
+ **EPITOME**
 
 **Built By** _`christinekarimi`_
 
 **Description**
     
-     This is a web application that allows a writer(bloger) to write/share his/her opinions and allow people to comment on a choosen blog. 
+     This is a web application that allows a writer,who's the admin to blogs, where other people can comment on various blogs of their choice. 
 
 **User Stories** 
 
     A user can:
     
-        <o> view the blog posts submitted
-        <o> comment on blog posts
-        <o> view the most recent posts
-        <o> be alerted when a new post is made by joining a subscription.
+        > view the blog posts submitted
+        > comment on blog posts
+        > view the most recent posts
+        > be alerted when a new post is made by joining a subscription.
  
     As writer is able to:
     
-        <o> sign in to the blog.
-        <o> create blog from the application.
-        <o> delete comments that I find insulting or degrading.
-        <o> update or delete blogs i have created.
+        > sign in to the blog.
+        > create blog from the application.
+        > delete comments that I find insulting or degrading.
+        > update or delete blogs i have created.
     
  **Setup**
  
-    <o> Install python3.6 
-    <o> git clone https://github.com/christinekarimi/blog
-    <o> run 'python3.6 manage.py runserver' from the terminal
+    > Install python3.6 
+    > git clone https://github.com/christinekarimi/blog
+    > run 'python3.6 manage.py runserver' from the terminal
     
  
  **Tech Used**
  
-    <o> python3.6
-    <0> flask
-    <0> postgres
+    > python3.6
+    > flask
+    > postgres
     
  **License**
     
