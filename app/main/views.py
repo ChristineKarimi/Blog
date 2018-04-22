@@ -10,7 +10,7 @@ from .. import db
 
 
 @main.route('/')
-@login_required
+
 def index():
 
     blogs = Blog.get_blog(id)
@@ -29,6 +29,7 @@ def check_user():
 
 
 @main.route('/blog/<int:id>')
+@login_required
 def single_blog(id):
 
     single_blog = Blog.query.get(id)
@@ -42,6 +43,7 @@ def single_blog(id):
 
 
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
 
@@ -52,6 +54,7 @@ def profile(uname):
 
 
 @main.route('/blog/review/new/<int:id>', methods=['GET', 'POST'])
+@login_required
 def new_review(id):
 
     blog = Blog.query.filter_by(id=id).first()

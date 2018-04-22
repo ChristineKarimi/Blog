@@ -22,6 +22,7 @@ def check_user():
 
 
 @admin.route('/blog/new', methods=['GET', 'POST'])
+@login_required
 def new_blog():
 
     form = BlogForm()
@@ -46,6 +47,7 @@ def new_blog():
 
 
 @admin.route('/delete/blog/<int:id>', methods=['GET', 'POST'])
+@login_required
 def delete_blog(id):
 
     blog = Blog.delete_blog(id)
@@ -53,6 +55,7 @@ def delete_blog(id):
     return redirect(url_for('main.index'))
 
 @admin.route('/delete/review/<int:id>', methods=['GET', 'POST'])
+@login_required
 def delete_review(id):
 
     review = Review.delete_blog(id)
@@ -60,6 +63,7 @@ def delete_review(id):
     return redirect(url_for('.single_blog'))
 
 @admin.route('/edit/blog/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_blog(id):
 
     edit = Review.delete_blog(id)

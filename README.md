@@ -13,14 +13,14 @@
         > view the blog posts submitted
         > comment on blog posts
         > view the most recent posts
-        > be alerted when a new post is made by joining a subscription.
+        > get a notification when a new blog gets added.
  
     As writer is able to:
     
         > sign in to the blog.
         > create blog from the application.
-        > delete comments that I find insulting or degrading.
-        > update or delete blogs i have created.
+        > delete comments.
+        > update or delete blogposts.
     
  **Setup**
  
