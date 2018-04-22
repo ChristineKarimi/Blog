@@ -29,7 +29,7 @@ def check_user():
 
 
 @main.route('/blog/<int:id>')
-@login_required
+
 def single_blog(id):
 
     single_blog = Blog.query.get(id)
