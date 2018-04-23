@@ -10,7 +10,6 @@ from .. import db
 
 
 @main.route('/')
-
 def index():
 
     blogs = Blog.get_blog(id)
@@ -43,7 +42,7 @@ def single_blog(id):
 
 
 @main.route('/user/<uname>')
-@login_required
+
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
 
