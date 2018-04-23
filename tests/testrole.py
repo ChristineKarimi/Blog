@@ -26,7 +26,7 @@ class Role(unittest.TestCase):
 
     def test_password_setter(self):
 
-        self.assertTrue(self.new_writer.password_secure is not None)
+        self.assertTrue(self.new_role.password_secure is not None)
 
 
 
@@ -34,13 +34,13 @@ class Role(unittest.TestCase):
 
         with self.assertRaises(AttributeError):
 
-            self.new_writer.password
+            self.new_role.password
 
 
 
     def test_password_verification(self):
 
-        self.assertTrue(self.new_writer.verify_password('banana'))
+        self.assertTrue(self.new_role.verify_password('banana'))
 
 
 
