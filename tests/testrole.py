@@ -46,4 +46,4 @@ class Role(unittest.TestCase):
 
     def tearDown(self):
 
-        Writer.query.delete()
+        role.query.delete()
