@@ -6,18 +6,18 @@ class Config:
     General configuration parent class
     '''
 
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://karimi:karimi@localhost/blog'
+    # SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://karimi:karimi@localhost/blog'
 
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
-    WTF_CSRF_ENABLED = True
+    #WTF_CSRF_ENABLED = True
 
-    SQLALCHEMY_TRACK_MODIFICATIONS=False
+    #SQLALCHEMY_TRACK_MODIFICATIONS=False
 
-    ADMIN_PASSWORD='31989796'
+   # ADMIN_PASSWORD='31989796'
 
-    ADMIN_USERNAME='karimikim'
+   # ADMIN_USERNAME='karimikim'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -36,7 +36,7 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
 
-   # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     
     
 class DevConfig(Config):
